@@ -47,6 +47,6 @@
 
 ## 참고
 
-- 두산 DX140W-5 제원 (https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
-- [참고한 GitHub: Two-Link-Robot-Control] (https://github.com/AminPmi/Two-Link-Robot-Control)
+- [두산 DX140W-5 제원](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
+- [참고한 GitHub: Two-Link-Robot-Control](https://github.com/AminPmi/Two-Link-Robot-Control)
 
