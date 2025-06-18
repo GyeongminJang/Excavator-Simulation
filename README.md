@@ -43,6 +43,12 @@
 
 ---
 
+### Simulink Torque 그래프
+
+![Simulink Torque Graph](Torque.png)
+
+---
+
 ### COMSOL Von Mises Stress 그래프
 
 ![COMSOL Stress Graph](Von_Mises_Stress_Graphs.png)
