@@ -66,5 +66,4 @@
 ## 참고자료
 
 - [두산 DX140W-5 제원](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)  
-- [COMSOL 공식 튜토리얼 및 LiveLink for Simulink]
 - [참고한 GitHub: Two-Link-Robot-Control](https://github.com/AminPmi/Two-Link-Robot-Control)
