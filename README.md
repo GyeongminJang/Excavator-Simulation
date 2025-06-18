@@ -1,52 +1,51 @@
 # Excavator 2-Link Manipulator Simulation
 
-본 프로젝트는 실제 두산 DX140W-5 굴삭기의 붐(Boom)과 암(Arm)을 2링크 매니퓰레이터로 단순화하여, MATLAB 및 Simulink를 활용해 동역학, 제어, 구조 해석까지 수행한 시뮬레이션입니다.
+This project simplifies the boom and arm of a real Doosan DX140W-5 excavator into a 2-link manipulator, and performs dynamic analysis, control, and structural evaluation using MATLAB and Simulink.
 
 ---
 
-## 📁 파일 구조 및 역할
+## 📁 File Structure & Roles
 
-| 파일명                  | 설명                                                                                  |
-|------------------------|--------------------------------------------------------------------------------------|
-| **Excavator_Settings.m**    | 시뮬레이션을 위한 환경 및 변수(링크 길이, 질량 등) 설정, 그래프 환경 구축              |
-| **Plot_Excavator.m**        | 시뮬레이션 중 붐과 암의 위치를 실시간으로 그래프로 표시                                |
-| **Excavator_Simulation.m**  | 굴삭기의 붐과 암 이동 경로 시뮬레이션, PD 제어 성능 그래프 출력                        |
-| **Excavator_Control.slx**   | Simulink 모델: 역기구학, 동역학, PD 제어, 순기구학을 모두 포함, 각 관절의 토크/각도 계산 |
-
----
-
-## 🛠️ 구현 내용
-
-- **굴삭기 모델링:** 실제 굴삭기 제원을 바탕으로 2링크 매니퓰레이터로 단순화
-- **기구학/동역학 해석:** 순기구학, 역기구학, 라그랑주 방정식 기반 동역학 모델링
-- **제어기 설계:** PD 제어기를 적용하여 목표 경로를 정확히 추종
-- **시뮬레이션:** MATLAB에서 경로 그래프, Simulink에서 각 관절의 위치/속도/가속도/토크 시계열 출력
-- **실시간 시각화:** Plot_Excavator.m을 통해 붐과 암의 움직임을 실시간으로 확인
-- **성능 분석:** PD 제어 전후의 진동 및 경로 추종 성능 비교 그래프 제공
-- **구조 해석 연계:** Simulink에서 산출한 토크/각도 데이터를 기반으로 구조 해석(COMSOL)까지 확장 가능
+| Filename                   | Description                                                                                  |
+|----------------------------|---------------------------------------------------------------------------------------------|
+| **Excavator_Settings.m**   | Sets up simulation environment and variables (link length, mass, etc.), configures graphs   |
+| **Plot_Excavator.m**       | Real-time plotting of boom and arm positions during simulation                              |
+| **Excavator_Simulation.m** | Simulates boom and arm movement paths, outputs PD control performance graphs                |
+| **Excavator_Control.slx**  | Simulink model: includes inverse kinematics, dynamics, PD control, forward kinematics; calculates joint torques/angles |
 
 ---
 
-## ▶️ 실행 방법
+## 🛠️ Implementation Details
 
-1. MATLAB에서 `Excavator_Settings.m` 실행하여 환경 및 변수 세팅
-2. Simulink에서 `Excavator_Control.slx` 실행 (또는 MATLAB에서 `open('Excavator_Control.slx')`)
-3. `Excavator_Simulation.m` 실행하여 전체 시뮬레이션 및 성능 분석 그래프 확인
-4. 시뮬레이션 중 `Plot_Excavator.m`이 자동 호출되어 실시간 그래프 표시
-
----
-
-## 💡 주요 특징
-
-- 실제 굴삭기 제원을 반영한 2링크 로봇팔 시뮬레이션
-- MATLAB/Simulink 기반 동역학 및 제어기 설계
-- 실시간 시각화 및 성능 분석
-- 구조 해석(COMSOL)과의 연계 가능성
+- **Excavator Modeling:** Simplified as a 2-link manipulator based on actual excavator specifications
+- **Kinematics/Dynamics Analysis:** Forward/inverse kinematics, Lagrangian-based dynamic modeling
+- **Controller Design:** PD controller for accurate trajectory tracking
+- **Simulation:** Path graphs in MATLAB, time-series output of joint position/velocity/acceleration/torque in Simulink
+- **Real-Time Visualization:** Real-time movement of boom and arm via Plot_Excavator.m
+- **Performance Analysis:** Comparison graphs of vibration and trajectory tracking before and after PD control
+- **Structural Analysis Integration:** Joint torque/angle data from Simulink can be used for further structural analysis (COMSOL)
 
 ---
 
-## 참고
+## ▶️ How to Run
 
-- [두산 DX140W-5 제원](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
-- [참고한 GitHub: Two-Link-Robot-Control](https://github.com/AminPmi/Two-Link-Robot-Control)
+1. Run `Excavator_Settings.m` in MATLAB to set up environment and variables
+2. Open and run `Excavator_Control.slx` in Simulink (or use `open('Excavator_Control.slx')` in MATLAB)
+3. Run `Excavator_Simulation.m` to perform the full simulation and view performance analysis graphs
+4. During simulation, `Plot_Excavator.m` is automatically called to display real-time plots
 
+---
+
+## 💡 Key Features
+
+- 2-link robot arm simulation reflecting actual excavator specifications
+- Dynamic and controller design based on MATLAB/Simulink
+- Real-time visualization and performance analysis
+- Extendable to structural analysis (COMSOL) using Simulink output data
+
+---
+
+## References
+
+- [Doosan DX140W-5 Specifications](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
+- [Reference GitHub: Two-Link-Robot-Control](https://github.com/AminPmi/Two-Link-Robot-Control)
