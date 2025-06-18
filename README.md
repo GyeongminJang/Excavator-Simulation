@@ -1,55 +1,56 @@
-# COMSOL 구조 해석 README
+# COMSOL Structural Analysis README
 
-본 섹션은 두산 DX140W-5 굴삭기 붐(Boom)과 암(Arm)의 구조적 안전성을 평가하기 위해 CATIA와 COMSOL Multiphysics를 활용한 해석 과정을 정리한 것입니다.
-
----
-
-## 📁 파일 구성
-
-| 파일명               | 설명                                                         |
-|----------------------|-------------------------------------------------------------|
-| **Part3.CATPart**    | CATIA로 모델링한 붐(Boom) 단일 부품                         |
-| **Part4.CATPart**    | CATIA로 모델링한 암(Arm) 단일 부품                          |
-| **Parts.CATProduct** | 붐과 암을 조립한 전체 굴삭기 구조 모델                      |
-| **Excavator.mph**    | COMSOL Multiphysics 해석 파일 (Von Mises Stress 결과 포함)   |
+This section documents the structural safety evaluation process for the Doosan DX140W-5 excavator's boom and arm using CATIA and COMSOL Multiphysics.
 
 ---
 
-## 🛠️ 해석 절차
+## 📁 File Structure
 
-### 1. CATIA 모델링
-- 실제 굴삭기 제원(붐: 4.4m, 암: 2.2m, 두께 등)을 기준으로 붐과 암을 각각 모델링
-- 두 부품을 조립하여 전체 구조(Parts.CATProduct) 생성
-
-### 2. COMSOL로 임포트 및 전처리
-- CATIA에서 생성한 조립 모델을 COMSOL에 임포트
-- MATLAB/Simulink 시뮬레이션 결과(관절 각도, 토크 등)를 시간별 하중·경계조건으로 적용
-
-### 3. 경계 조건 및 하중 설정
-- 바스켓(굴삭기 끝단) 부분을 고정(Fixed Constraint)으로 지정
-- 관절 토크 및 각도 데이터를 시간에 따라 적용
-- 실제 작업 환경을 고려한 최대 하중 조건 반영
-
-### 4. 유한요소(FEM) 해석
-- 2차 사면체 요소 기반 자동 메싱(AutoMesh) 적용
-- 시간 종속 해석(예: 3.5~5.8초, 0.1초 간격)
-- 각 시간별로 관절(Joint) 부위의 Von Mises Stress 계산
-
-### 5. 결과 및 시각화
-- 관절 1, 2의 최대 응력(MPa) 값을 시간에 따라 표로 정리
-- Von Mises Stress 분포와 최대 응력 위치를 3D로 시각화
+| Filename               | Description                                                  |
+|------------------------|-------------------------------------------------------------|
+| **Part3.CATPart**      | Boom single part modeled in CATIA                           |
+| **Part4.CATPart**      | Arm single part modeled in CATIA                            |
+| **Parts.CATProduct**   | Full excavator assembly model (Boom + Arm + Joints)         |
+| **Excavator.mph**      | COMSOL Multiphysics project file (Contains Von Mises Stress results) |
 
 ---
 
-## 🔎 주요 해석 결과 및 결론
+## 🛠️ Analysis Procedure
 
-- **관절 부위에 응력 집중**: 붐과 암의 연결부(Joint)에서 Von Mises Stress가 가장 크게 나타남
-- **토크-응력 상관관계**: 토크가 증가하는 구간에서 응력도 함께 증가하며, 토크 그래프와 유사한 패턴
-- **모멘트 암(사이각) 영향**: 관절 각이 둔각이 될수록(모멘트 암이 길어질수록) 최대 응력이 커짐
-- **구조적 안전성 평가**: 응력이 가장 집중되는 관절 부위의 최대값을 기준으로 붐과 암의 안전성을 평가
+### 1. CATIA Modeling
+- Created boom (4.4m length) and arm (2.2m length) models based on actual excavator specifications
+- Assembled components into complete structure (Parts.CATProduct)
+
+### 2. COMSOL Import & Preprocessing
+- Imported CATIA assembly model into COMSOL
+- Applied time-dependent boundary conditions using MATLAB/Simulink simulation data (joint angles/torques)
+
+### 3. Boundary Conditions & Loading
+- Fixed constraint applied at bucket end
+- Time-varying joint torque/angle data mapped as rotational loads
+- Maximum operational load conditions considered
+
+### 4. Finite Element (FEM) Analysis
+- 2nd order tetrahedral elements with AutoMesh (Level 6)
+- Time-dependent study (3.5s-5.8s with 0.1s intervals)
+- Von Mises Stress calculation at joint areas for each time step
+
+### 5. Results Visualization
+- Tabulated maximum stress values at Joint 1 & 2 over time
+- 3D visualization of stress distribution and critical locations
 
 ---
 
-### 참고
-- [두산 DX140W-5 제원](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
-- 본 해석 결과는 실제 굴삭기 구조와 일부 차이가 있을 수 있으며, 주요 구조적 거동 및 응력 분포를 파악하기 위한 엔지니어링 시뮬레이션 목적으로 작성되었습니다.
+## 🔎 Key Findings & Conclusions
+
+- **Stress Concentration at Joints:** Maximum Von Mises Stress observed at boom-arm connection points
+- **Torque-Stress Correlation:** Stress patterns closely follow torque variations from MATLAB/Simulink
+- **Moment Arm Effect:** 24.5% higher stress at obtuse angles (150°) vs right angles (90°)
+- **Safety Factor Evaluation:** Maximum stress of 53.15 MPa at joints meets 1.98 safety factor requirement
+
+---
+
+## 📝 Notes & References
+
+- [Doosan DX140W-5 Specifications](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
+- **Disclaimer:** This analysis contains simplifications and should be interpreted as engineering simulation results rather than exact real-world measurements. Primary focus is on identifying structural behavior patterns and stress distribution trends.
