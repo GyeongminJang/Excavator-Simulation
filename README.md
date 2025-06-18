@@ -51,5 +51,5 @@
 ---
 
 ### 참고
-- 두산 DX140W-5 제원 (https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
+- [두산 DX140W-5 제원](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)
 - 본 해석 결과는 실제 굴삭기 구조와 일부 차이가 있을 수 있으며, 주요 구조적 거동 및 응력 분포를 파악하기 위한 엔지니어링 시뮬레이션 목적으로 작성되었습니다.
