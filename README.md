@@ -64,3 +64,9 @@ This project simplifies the boom and arm of the Doosan DX140W-5 excavator into a
 
 - [Doosan DX140W-5 Specifications](https://blog.naver.com/PostView.nhn?blogId=cetec16&logNo=221088986488)  
 - [Reference GitHub: Two-Link-Robot-Control](https://github.com/AminPmi/Two-Link-Robot-Control)
+
+---
+
+## 👥 Team
+
+- Gyeonngmin Jang, Jonguk Baek(같이 한 사람)
