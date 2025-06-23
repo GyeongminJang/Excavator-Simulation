@@ -69,4 +69,4 @@ This project simplifies the boom and arm of the Doosan DX140W-5 excavator into a
 
 ## 👥 Team
 
-- Gyeonngmin Jang, Jonguk Baek(같이 한 사람)
+- Gyeonngmin Jang, **Jonguk Baek(Collaborator)**
